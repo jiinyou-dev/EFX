@@ -3,14 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <title>School Crypto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      text-align: center;
+      padding-top: 60px;
+    }
+    .box {
+      background: white;
+      width: 300px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 90%;
+      padding: 8px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    #dashboard {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>School Cryptocurrency</h1>
-  <p>Welcome to our school-based digital currency system.</p>
+  <!-- 로그인 화면 -->
+  <div class="box" id="login">
+    <h2>School Cryptocurrency</h2>
+    <p>Enter your Student ID</p>
+    <input type="text" id="studentId" placeholder="Student ID">
+    <br>
+    <button onclick="login()">Log in</button>
+  </div>
 
-  <button>Check Balance</button>
-  <button>Buy Coupon</button>
+  <!-- 로그인 후 화면 -->
+  <div class="box" id="dashboard">
+    <h2>Welcome</h2>
+    <p>Your balance:</p>
+    <h3 id="balance">100 Coins</h3>
+
+    <button>Buy Homework Pass</button>
+  </div>
+
+  <script>
+    function login() {
+      const id = document.getElementById("studentId").value;
+      if (id === "") {
+        alert("Please enter your Student ID");
+        return;
+      }
+
+      // 로그인 성공 (임시)
+      document.getElementById("login").style.display = "none";
+      document.getElementById("dashboard").style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
